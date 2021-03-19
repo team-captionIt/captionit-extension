@@ -11,9 +11,8 @@
             "js": ["content.js"]
         }
     ],
-    "page_action": {
-        "default_icon": "icon_16x16.png",
-        "default_title": "CaptionIt"
-    },
-    "options_page": "options/options.html"
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    }
 }
