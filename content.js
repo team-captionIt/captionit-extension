@@ -1,10 +1,4 @@
-window.onload = () => {
-    let uselessLayers = document.querySelectorAll("._9AhH0"); // Class ._9AhH0 is an element on top of the image that messes with the right click context.
-    for (const uselessLayer of uselessLayers) {
-        uselessLayer.remove();
-    }
-};
-window.onscroll = () => {
+const removeUselessLayers = () => {
     let uselessLayers = document.querySelectorAll("._9AhH0"); // Class ._9AhH0 is an element on top of the image that messes with the right click context.
     for (const uselessLayer of uselessLayers) {
         uselessLayer.remove();
@@ -15,6 +9,15 @@ const equivalentURLS = (urlA, urlB) => {
     const filenameA = urlA.match(filenamePattern)[0];
     const filenameB = urlB.match(filenamePattern)[0];
     return filenameA === filenameB;
+};
+window.onload = () => {
+    removeUselessLayers();
+};
+window.onscroll = () => {
+    removeUselessLayers();
+};
+window.onclick = () => {
+    removeUselessLayers();
 };
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.getAltTextFromElementWithSrcURL !== undefined) {
