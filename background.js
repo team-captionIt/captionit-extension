@@ -16,26 +16,6 @@ chrome.contextMenus.onClicked.addListener((clickData) => {
                     console.log(response);
                 }
             );
-            // chrome.tabs.sendMessage(
-            //     tabs[0].id,
-            //     {
-            //         getInfo: true,
-            //     },
-            //     (response) => {
-            //         if (response.videoElementPresent) {
-            //             chrome.tabs.sendMessage(tabs[0].id, {
-            //                 redirect: true,
-            //                 redirectURL: `https://masked.io/report?url=${clickData.pageUrl}`,
-            //             });
-            //         } else {
-            //             chrome.tabs.sendMessage(tabs[0].id, {
-            //                 type: "alert",
-            //                 message:
-            //                     "Could not find any video element in the page.",
-            //             });
-            //         }
-            //     }
-            // );
         });
     }
 });
