@@ -1,5 +1,5 @@
 # captionit-extension
-  Caption your insta pics with ease
+  Caption your instagram pictures with ease.
 # **Team Missing ;**
 
 ### **Meet our members:**
