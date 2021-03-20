@@ -19,3 +19,10 @@ chrome.contextMenus.onClicked.addListener((clickData) => {
         });
     }
 });
+
+// ############################## Page Action #############################
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+    if (/instagram\.com/.test(tab.url)) {
+        chrome.pageAction.show(tabId);
+    }
+});
