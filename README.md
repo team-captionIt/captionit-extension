@@ -33,7 +33,7 @@ Pulkit      :Backend (NLP) and Base code
 
 Arya        :Backend and Data Handling (NLP)
 
-
+# Installation 
 
 ## Open Manage extension tab
 
