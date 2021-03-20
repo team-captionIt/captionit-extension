@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "CaptionIt Extension",
     "description": "Caption your insta pics with ease.",
-    "version": "1.0",
+    "version": "2.0",
     "incognito": "spanning",
     "permissions": ["tabs", "contextMenus", "storage", "http://localhost/*"],
     "icons": {
