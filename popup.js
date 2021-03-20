@@ -1,8 +1,7 @@
-let loading = true;
+chrome.storage.local.set({ quotes: undefined });
+
 const renderQuote = (author, quote) => {
-    // const quote =
-    //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia esse corporis ullam, quam cupiditate suscipit!";
-    // const author = "- Lorem, ipsum dolor.";
+    console.log("rendering quote", author, quote);
     const quoteContainer = document.querySelector(".quote-container");
     const writeToClipboard = async (text) => {
         try {
@@ -11,9 +10,11 @@ const renderQuote = (author, quote) => {
             console.log(`Unable to write ${text}`, error);
         }
     };
+
     const quoteElement = document.createElement("div");
     quoteElement.className = "quote";
-    quoteElement.dataset.quoteContent = quote + " " + author;
+    quoteElement.dataset.quoteContent = quote + "- " + author;
+
     const quoteTextElement = document.createElement("div");
     quoteTextElement.className = "quote-text";
     quoteTextElement.innerText = quote;
@@ -40,43 +41,56 @@ const renderQuote = (author, quote) => {
 
     const authorElement = document.createElement("span");
     authorElement.className = "quote-author";
-    authorElement.innerText = author;
+    authorElement.innerText = "- " + author;
     seperator.appendChild(authorElement);
 
     quoteElement.appendChild(seperator);
     quoteContainer.appendChild(quoteElement);
 };
-const checkData = () => {
-    chrome.storage.local.get(["quotes"], (result) => {
-        console.log("Value is currently: " + result.quotes, result);
-        if (result.quotes !== undefined) {
-            const loadingElement = document.querySelector(".loading");
-            loadingElement.classList.add("remove");
-            const quoteContainer = document.querySelector(".quote-container");
-            quoteContainer.classList.remove("remove");
-            for (let author in result.quotes) {
-                const quote = result.quotes[author];
-                renderQuote(author, quote);
-            }
+const renderQuotes = (quotes) => {
+    console.log("rendering quotes => ", quotes);
+    const loadingElement = document.querySelector(".loading");
+    loadingElement.classList.remove("remove");
+    const quoteContainer = document.querySelector(".quote-container");
+    quoteContainer.classList.add("remove");
+    quoteContainer.innerHTML = "";
+    if (quotes !== undefined) {
+        const loadingElement = document.querySelector(".loading");
+        loadingElement.classList.add("remove");
+        const quoteContainer = document.querySelector(".quote-container");
+        quoteContainer.classList.remove("remove");
+        for (let author in quotes) {
+            const quote = quotes[author];
+            renderQuote(author, quote);
         }
-    });
-    chrome.storage.onChanged.addListener(function (changes, namespace) {
-        for (let key in changes) {
-            var storageChange = changes[key];
-            console.log(
-                'Storage key "%s" in namespace "%s" changed. ' +
-                    'Old value was "%s", new value is "%s".',
-                key,
-                namespace,
-                storageChange.oldValue,
-                storageChange.newValue
-            );
-            console.log(storage.newValue);
-        }
-    });
+    }
 };
-console.log(chrome);
-checkData();
+// const checkData = () => {
+//     chrome.storage.local.get(["quotes"], (result) => {
+//         console.log("Value is currently: " + result.quotes, result);
+//         renderQuotes(result.quotes);
+//     });
+// };
+// console.log(chrome);
+// checkData();
+console.log("adding listener");
+chrome.storage.onChanged.addListener((changes, namespace) => {
+    console.log("in storage.onChanged");
+    // let foundQuotes = false;
+    // for (let key in changes) {
+    //     if (key === "quotes") {
+    //         foundQuotes = true;
+    //         let storageChange = changes[key];
+    //         console.log(storageChange.newValue);
+    //         renderQuotes(storageChange.newValue);
+    //     }
+    // }
+    // if (!foundQuotes) {
+    //     renderQuotes();
+    // }
+    console.log("new quotes => ", changes["quotes"]);
+    renderQuotes(changes["quotes"]?.newValue);
+});
 // for (let i = 0; i < 5; i++) {
 //     renderQuote(
 //         "- Lorem, ipsum dolor.",

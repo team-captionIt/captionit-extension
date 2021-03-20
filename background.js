@@ -1,9 +1,21 @@
+chrome.runtime.onMessage.addListener((request, sender, sendMessage) => {
+    if (request.type === "clear") {
+        chrome.storage.local.set({ quotes: undefined }, () => {
+            console.log("Value is set to: ");
+            console.log(undefined);
+        });
+    }
+});
 // ############################## Context Menu #############################
 const fetchData = async (text) => {
     const url = `http://localhost:5000/?text=${text}`;
     const options = {
         method: "GET",
     };
+    chrome.storage.local.set({ quotes: undefined }, () => {
+        console.log("Value is set to: ");
+        console.log(undefined);
+    });
     console.log("Fetching data", url, options);
     try {
         const response = await fetch(url, options);
@@ -12,13 +24,6 @@ const fetchData = async (text) => {
             console.log("Value is set to: ");
             console.log(data);
         });
-        // chrome.extension.onConnect.addListener(function (port) {
-        //     console.log("Connected .....");
-        //     port.onMessage.addListener(function (msg) {
-        //         console.log("message recieved" + msg);
-        //         port.postMessage("Hi Popup.js");
-        //     });
-        // });
         console.log(data);
     } catch (error) {
         console.log(error);

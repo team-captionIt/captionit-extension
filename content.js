@@ -12,6 +12,7 @@ const equivalentURLS = (urlA, urlB) => {
 };
 window.onload = () => {
     removeUselessLayers();
+    chrome.runtime.sendMessage({ type: "clear" });
 };
 window.onscroll = () => {
     removeUselessLayers();
