@@ -35,8 +35,9 @@ Pulkit      :Backend (NLP) and Base code
 Arya        :Backend and Data Handling (NLP)
 
 ## Installation 
+For pre-requisites refer to https://github.com/team-captionIt/captionit-backend our backend repository.
 
-
+Clone the repository and use this as the folder for chrome extension and follow the steps below.
 ### Open Manage extension tab
 
 
