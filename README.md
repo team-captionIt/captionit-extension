@@ -1,5 +1,5 @@
 # captionit-extension
-## **Team Missing ;**
+# **Team Missing ;**
 
 ### **Meet our members:**
 Chirag Madaan     20BCI0057 (leader)
