@@ -3,7 +3,7 @@
 # **Team Missing ;**
 
 ### **Meet our members:**
-Chirag Madaan     20BCI0057 (leader)
+Chirag Madaan     20BCI0059 (leader)
 
 
 Yash Bobde        20BCI0176
@@ -35,18 +35,6 @@ Pulkit      :Backend (NLP) and Base code
 Arya        :Backend and Data Handling (NLP)
 
 ## Installation 
-###Download data set from https://www.kaggle.com/manann/quotes-500k?select=quotes.csv and ensure its location as C:/quotes1.csv
-
-
-
-###Run following codes on terminal to install pre-requisites if not present
-
-`pip install spacy`
-
-
-`python -m spacy download en_core_web_sm`
-
-`pip install flask`
 
 
 ### Open Manage extension tab
