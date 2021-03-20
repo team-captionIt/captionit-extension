@@ -1,15 +1,17 @@
 # captionit-extension
-**Team Missing ;
+## **Team Missing ;
 **
 
-**Meet our members:**
+### **Meet our members:**
 Chirag Madaan     20BCI0057 (leader)
+
+
 Yash Bobde        20BCI0176
 Pulkit Chahar     20BCI0087
 Adam Jijo         20BCI0077
 Arya Wadhwani     20BCE0399
 
-**Roles:**
+### **Roles:**
 Adam        : Front-end and Extension development
 Chirag(L)   : Design and Code Fragmentation
 Yash        : Design and Documentation
@@ -17,10 +19,6 @@ Pulkit      :Backend (NLP) and Base code
 Arya        :Backend and Data Handling (NLP)
 
 
-![image](https://user-images.githubusercontent.com/73872418/111871867-4af9c900-89b2-11eb-9b3c-951add063be4.png)
-
-
-![image](https://user-images.githubusercontent.com/73872418/111871841-23a2fc00-89b2-11eb-8332-8d320a5b2f2e.png)
 
 Open Manage extension tab
 ![image](https://user-images.githubusercontent.com/73872418/111870771-a1fc9f80-89ac-11eb-9efb-c47409515852.png)
